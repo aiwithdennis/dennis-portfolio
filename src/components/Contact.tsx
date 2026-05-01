@@ -22,7 +22,7 @@ const contactLinks = [
   },
 ]
 
-const socialLinks = [,
+const socialLinks = [
   {
     label: 'Facebook',
     href: 'https://www.facebook.com/leadplug',
