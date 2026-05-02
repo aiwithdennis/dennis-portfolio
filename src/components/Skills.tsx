@@ -24,15 +24,6 @@ const skillCategories = [
     ],
   },
   {
-    title: 'Technical',
-    skills: [
-      'REST API Integration',
-      'Vercel Deployment',
-      'FastAPI',
-      'Webhook Architecture',
-    ],
-  },
-  {
     title: 'Marketing and Growth',
     skills: [
       'Cold Outreach Strategy',

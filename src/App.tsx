@@ -14,8 +14,8 @@ export default function App() {
       <Hero />
       <Stats />
       <main className="space-y-0">
-        <AutonomousSystems />
         <ClientProjects />
+        <AutonomousSystems />
         <Skills />
         <Contact />
       </main>
