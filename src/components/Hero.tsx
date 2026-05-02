@@ -5,12 +5,12 @@ const HEADSHOT = 'https://assets.cdn.filesafe.space/HjDTB0LDJxrDXJCMDeYD/media/6
 
 export default function Hero() {
   return (
-    <section className="relative min-h-screen flex items-center pt-16 section-pad overflow-hidden">
+    <section className="relative flex items-center pt-16 section-pad overflow-hidden">
       {/* Background glow */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-primary/10 rounded-full blur-[150px] pointer-events-none" />
       <div className="absolute top-20 right-20 w-[300px] h-[300px] bg-primary/5 rounded-full blur-[100px] pointer-events-none" />
 
-      <div className="max-w-7xl mx-auto w-full grid md:grid-cols-2 gap-10 md:gap-16 items-center relative z-10 py-10 md:py-0">
+      <div className="max-w-7xl mx-auto w-full grid md:grid-cols-2 gap-8 md:gap-10 items-center relative z-10 py-12 md:py-16">
         {/* Left Column */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
