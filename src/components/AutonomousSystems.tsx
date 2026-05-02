@@ -58,8 +58,8 @@ function PipelineFlow({ steps }: { steps: typeof receptionAutoPipeline }) {
         ))}
       </div>
 
-      {/* Mobile: vertical flow */}
-      <div className="lg:hidden grid grid-cols-4 gap-3">
+      {/* Mobile: 2-col grid so icons aren't too cramped */}
+      <div className="lg:hidden grid grid-cols-2 sm:grid-cols-4 gap-3">
         {steps.map((step, i) => (
           <motion.div
             key={step.label}
@@ -67,12 +67,15 @@ function PipelineFlow({ steps }: { steps: typeof receptionAutoPipeline }) {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: i * 0.05 }}
-            className="flex flex-col items-center text-center"
+            className="flex items-center gap-3 bg-background/30 rounded-lg px-3 py-2.5 sm:flex-col sm:items-center sm:text-center sm:bg-transparent sm:px-0 sm:py-0"
           >
-            <div className="w-9 h-9 rounded-lg bg-primary/10 border border-primary/20 flex items-center justify-center mb-1.5">
+            <div className="w-9 h-9 rounded-lg bg-primary/10 border border-primary/20 flex items-center justify-center shrink-0 sm:mb-1.5">
               <step.icon size={16} className="text-primary-light" />
             </div>
-            <span className="text-[10px] font-heading font-bold text-white">{step.label}</span>
+            <div className="sm:text-center">
+              <span className="text-xs font-heading font-bold text-white block">{step.label}</span>
+              <span className="text-[10px] text-white/30 leading-tight sm:hidden">{step.desc}</span>
+            </div>
           </motion.div>
         ))}
       </div>
@@ -103,7 +106,7 @@ function SystemCard({
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
       transition={{ delay: index * 0.15 }}
-      className="bg-surface border border-white/[0.06] rounded-2xl p-6 md:p-8 card-hover"
+      className="bg-surface border border-white/[0.06] rounded-2xl p-5 sm:p-6 md:p-8 card-hover"
     >
       {/* Header */}
       <div className="mb-6">
@@ -117,7 +120,7 @@ function SystemCard({
       </div>
 
       {/* Pipeline Visual */}
-      <div className="bg-background/50 border border-white/[0.04] rounded-xl p-4 md:p-6 mb-6">
+      <div className="bg-background/50 border border-white/[0.04] rounded-xl p-3 sm:p-4 md:p-6 mb-6">
         <span className="text-[10px] font-heading font-semibold text-white/20 tracking-widest uppercase mb-4 block">
           Pipeline Flow
         </span>

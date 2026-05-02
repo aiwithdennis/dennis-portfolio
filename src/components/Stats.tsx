@@ -39,8 +39,8 @@ export default function Stats() {
   return (
     <section ref={ref} className="section-pad py-12">
       <div className="max-w-7xl mx-auto">
-        <div className="bg-surface border border-white/[0.06] rounded-2xl p-6 md:p-8">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
+        <div className="bg-surface border border-white/[0.06] rounded-2xl p-5 sm:p-6 md:p-8">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-4 sm:gap-6 md:gap-8">
             {stats.map((stat, i) => {
               const count = useCountUp(stat.value, 2000, isInView)
               return (
@@ -53,7 +53,7 @@ export default function Stats() {
                   className="text-center"
                 >
                   <stat.icon size={24} className={`${stat.color} mx-auto mb-3 opacity-70`} />
-                  <div className="font-heading font-extrabold text-3xl md:text-4xl text-white mb-1">
+                  <div className="font-heading font-extrabold text-2xl sm:text-3xl md:text-4xl text-white mb-1">
                     {stat.prefix || ''}{count}{stat.suffix}
                   </div>
                   <div className="text-xs text-white/40 font-medium">{stat.label}</div>

@@ -99,7 +99,7 @@ function ProjectCard({ project, index }: { project: Project; index: number }) {
     >
       <button
         onClick={() => setExpanded(!expanded)}
-        className="w-full flex items-center justify-between p-6 text-left"
+        className="w-full flex items-center justify-between p-5 sm:p-6 text-left min-h-[64px]"
       >
         <div>
           <h3 className="font-heading font-bold text-base md:text-lg text-white">
@@ -115,7 +115,7 @@ function ProjectCard({ project, index }: { project: Project; index: number }) {
       </button>
 
       {expanded && (
-        <div className="px-6 pb-6 space-y-5">
+        <div className="px-4 sm:px-6 pb-5 sm:pb-6 space-y-5">
           {/* Image */}
           {project.image && (
             <div className="rounded-xl overflow-hidden border border-white/[0.06]">

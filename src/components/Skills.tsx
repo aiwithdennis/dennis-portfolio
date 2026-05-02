@@ -107,7 +107,7 @@ export default function Skills() {
             {tools.map((tool) => (
               <span
                 key={tool}
-                className="text-xs font-medium text-white/40 bg-white/[0.04] border border-white/[0.06] rounded-lg px-3 py-1.5 hover:border-primary/20 hover:text-primary-light transition-colors"
+                className="text-xs font-medium text-white/40 bg-white/[0.04] border border-white/[0.06] rounded-lg px-3 py-2 hover:border-primary/20 hover:text-primary-light transition-colors"
               >
                 {tool}
               </span>

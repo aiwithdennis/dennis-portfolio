@@ -19,14 +19,24 @@ export default function Header() {
     return () => window.removeEventListener('scroll', handleScroll)
   }, [])
 
+  // Lock body scroll when mobile menu is open
+  useEffect(() => {
+    document.body.style.overflow = mobileOpen ? 'hidden' : ''
+    return () => { document.body.style.overflow = '' }
+  }, [mobileOpen])
+
+  const close = () => setMobileOpen(false)
+
   return (
     <header
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        scrolled ? 'bg-background/90 backdrop-blur-md border-b border-white/[0.06]' : 'bg-transparent'
+        scrolled || mobileOpen
+          ? 'bg-background/95 backdrop-blur-md border-b border-white/[0.06]'
+          : 'bg-transparent'
       }`}
     >
-      <div className="max-w-7xl mx-auto px-6 h-16 flex items-center justify-between">
-        <a href="#" className="font-heading font-extrabold text-xl tracking-tight">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 h-16 flex items-center justify-between">
+        <a href="#" onClick={close} className="font-heading font-extrabold text-xl tracking-tight">
           <span className="text-gradient">DA</span>
         </a>
 
@@ -49,32 +59,33 @@ export default function Header() {
           </a>
         </nav>
 
-        {/* Mobile Toggle */}
+        {/* Mobile Toggle — 44×44 touch target */}
         <button
-          className="md:hidden text-white/70"
+          className="md:hidden w-11 h-11 flex items-center justify-center rounded-lg text-white/70 hover:text-white hover:bg-white/[0.06] transition-colors"
           onClick={() => setMobileOpen(!mobileOpen)}
+          aria-label={mobileOpen ? 'Close menu' : 'Open menu'}
         >
-          {mobileOpen ? <X size={24} /> : <Menu size={24} />}
+          {mobileOpen ? <X size={22} /> : <Menu size={22} />}
         </button>
       </div>
 
-      {/* Mobile Nav */}
+      {/* Mobile Nav — full-screen overlay */}
       {mobileOpen && (
-        <div className="md:hidden bg-background/95 backdrop-blur-md border-t border-white/[0.06] px-6 py-6 space-y-4">
+        <div className="md:hidden bg-background/98 backdrop-blur-md border-t border-white/[0.06] px-4 sm:px-6 py-4 flex flex-col gap-1">
           {navLinks.map((link) => (
             <a
               key={link.href}
               href={link.href}
-              onClick={() => setMobileOpen(false)}
-              className="block text-base text-white/70 hover:text-white transition-colors"
+              onClick={close}
+              className="flex items-center min-h-[52px] text-base text-white/70 hover:text-white hover:bg-white/[0.04] rounded-xl px-4 transition-colors font-medium"
             >
               {link.label}
             </a>
           ))}
           <a
             href="#contact"
-            onClick={() => setMobileOpen(false)}
-            className="block text-center font-heading font-bold bg-primary text-white px-5 py-3 rounded-lg"
+            onClick={close}
+            className="mt-2 flex items-center justify-center min-h-[52px] font-heading font-bold bg-primary hover:bg-primary/80 text-white rounded-xl transition-all text-base"
           >
             Get In Touch
           </a>

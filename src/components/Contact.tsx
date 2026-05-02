@@ -37,7 +37,7 @@ export default function Contact() {
   return (
     <section id="contact" className="section-pad py-16 md:py-20">
       <div className="max-w-7xl mx-auto">
-        <div className="bg-surface border border-white/[0.06] rounded-2xl p-8 md:p-12 relative overflow-hidden">
+        <div className="bg-surface border border-white/[0.06] rounded-2xl p-5 sm:p-8 md:p-12 relative overflow-hidden">
           <div className="absolute top-0 right-0 w-[400px] h-[400px] bg-primary/5 rounded-full blur-[120px] pointer-events-none" />
 
           <div className="relative z-10 grid md:grid-cols-2 gap-12">
@@ -64,7 +64,7 @@ export default function Contact() {
                   <a
                     key={link.label}
                     href={link.href}
-                    className="flex items-center gap-4 group"
+                    className="flex items-center gap-4 group min-h-[48px]"
                   >
                     <div className="w-10 h-10 rounded-lg bg-primary/10 border border-primary/20 flex items-center justify-center group-hover:bg-primary/20 transition-colors">
                       <link.icon size={18} className="text-primary-light" />
