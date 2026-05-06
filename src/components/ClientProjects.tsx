@@ -1,6 +1,6 @@
 import { motion } from 'framer-motion'
 import { useState } from 'react'
-import { ChevronDown, ChevronUp, ExternalLink } from 'lucide-react'
+import { ChevronDown, ChevronUp } from 'lucide-react'
 
 interface Project {
   title: string
@@ -87,7 +87,7 @@ const projects: Project[] = [
 ]
 
 function ProjectCard({ project, index }: { project: Project; index: number }) {
-  const [expanded, setExpanded] = useState(index === 0)
+  const [expanded, setExpanded] = useState(true)
 
   return (
     <motion.div
